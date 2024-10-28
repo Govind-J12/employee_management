@@ -1,0 +1,40 @@
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href={% static "css/add_employee.css" %}>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Employee</h1>
+        <form action="/add_employee" method="POST">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="department">department</label>
+            <select name="department" id="department">
+                <option value="">select position</option>
+                <option value="hr">HR</option>
+                <option value="Engineer">Engineer</option>
+                <option value="Sales">Sales</option>
+            </select>
+            
+            <label for="role">Role</label>
+            <select name="role" id="role">
+                <option value="">select Role</option>
+                <option value="Manager">Manager</option>
+                <option value="Developer">Developer</option>
+                <option value="Analyst">Analyst</option>
+            </select>
+
+            <label for="date joined">Date joined</label>
+            <input type="date" id="date_joined" name="date_joined" required>
+
+            <button type="submit">Add Employee</button>
+        </form>
+    </div>
+
+{% endblock %}
